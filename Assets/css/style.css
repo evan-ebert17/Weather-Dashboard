@@ -1,0 +1,21 @@
+#currentWeatherBox {
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    width: 65%;
+}
+.inputParam {
+    display: inline-block;
+    
+}
+
+#forecastbox {
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    width: 65%;
+}
+
+h2:first-letter {
+    text-transform:capitalize;
+}

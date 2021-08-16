@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,30 @@
     <link rel="stylesheet" href="Assets/css/style.css">
 
 </head>
+
 <body>
     <nav>Weather Dashboard</nav>
-    <div id="leftcolumn">
-        <div class="inputParam">
-            <h1>Search for a City</h1>
-            <input id="textfield"></input>
-            <button id="searchbutton">Search</button>
-        </div>
-        <div id='citybuttons'>
 
+    <main>
+        <div id="leftcolumn">
+            <div class="inputParam">
+                <h1>Search for a City</h1>
+                <input id="textfield" placeholder="Austin"></input>
+                <button id="searchbutton">Search</button>
+            </div>
+            <div id='citybuttons'>
+
+            </div>
         </div>
-    </div>
-    <div id='currentWeatherBox'></div>
-    <div id='forecastbox'></div>
+        <div class='rightColumn'>
+            <div id='currentWeatherBox'></div>
+            <div style="display: none;" id="headerTextDiv">
+                <h4 id='forecastText' style='display: none;'>Weekly Forecast</h4>
+            </div>
+            <div id='forecastbox'></div>
+        </div>
+    </main>
     <script src="Assets/js/script.js"></script>
 </body>
+
 </html>

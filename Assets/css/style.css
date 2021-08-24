@@ -33,15 +33,13 @@ nav {
     width: 12.88%;
 }
 button {
-    border-style: hidden;
+    border-style: solid, 1px;
     background-color: lightcyan;
     border-radius: 25px;
 }
 
 #headerTextDiv {
-    position: absolute;
-    top: 367px;
-    left: 491px;
+    float: right;
 }
 .inputParam {
     display: inline-block;
@@ -84,7 +82,9 @@ h2 {
     font-size: 40px;
     align-self: center;
 }
-
+button:hover {
+    cursor: pointer;
+}
 h2:first-letter {
     text-transform:capitalize;
 }

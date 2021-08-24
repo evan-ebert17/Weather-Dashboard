@@ -12,12 +12,13 @@ let coordinate = {
 let cityName;
 let weatherData;
 let dailyForecast;
-// var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 // // var yyyy = today.getFullYear();
 
-// today = mm + '/' + dd; //+ '/' + yyyy;
+today = mm + '/' + dd; //+ '/' + yyyy;
 
 searchButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -86,6 +87,7 @@ function appendWeather(weatherData) {
     weatherHumid.textContent = 'Humidity: ' + weatherData.humidity;
     weatherUv.classList.add('uvbox')
     cityNameEl.textContent = cityName;
+    weatherBox.append(today)
     weatherBox.append(cityNameEl);
     cityNameEl.appendChild(weatherTemp);
     cityNameEl.appendChild(weatherWind);
@@ -95,26 +97,37 @@ function appendWeather(weatherData) {
 
 function appendForecast(dailyForecast) {
     forecastBox.innerHTML = '';
-    var textCast = document.getElementById('forecastText');
-    var forecastTextDiv = document.getElementById('headerTextDiv');
-    forecastTextDiv.style.display = 'inline';
-    textCast.style.display = 'inline';
+
     for (let i = 0; i < dailyForecast.length; i++) {
+        let week = new Date();
+        var dd = String(week.getDate() + 1 + i).padStart(2, '0');
+        var mm = String(week.getMonth() + 1).padStart(2, '0');
+        week = mm + '/' + dd;
         if (i < 5) {
             let weatherCard = document.createElement('div');
             weatherCard.classList.add('weathercard')
             weatherCard.innerHTML = '';
+            let weatherImg = document.createElement('h5');
             let weatherTemp5 = document.createElement("h3");
             let weatherWind5 = document.createElement("h3");
             let weatherUv5 = document.createElement("h3");
             let weatherHumid5 = document.createElement("h3");
             weatherUv5.classList.add('uvbox');
-            weatherTemp5.textContent = 'Temperature: ' + dailyForecast[i].temp.day;
-            weatherWind5.textContent = 'Wind Speed: ' + dailyForecast[i].wind_speed;
-            weatherUv5.textContent = 'UV: ' + dailyForecast[i].uvi;
-            weatherHumid5.textContent = 'Humidity: ' + dailyForecast[i].humidity;
+            weatherTemp5.textContent = 'Temperature: ' + dailyForecast[i + 1].temp.day;
+
+            weatherWind5.textContent = 'Wind Speed: ' + dailyForecast[i + 1].wind_speed;
+            if(dailyForecast[i+1].wind_speed > 12) {
+                weatherImg.textContent = 'Windy Today'
+            } else if(dailyForecast[i+1].temp.day > 95) {
+                weatherImg.textContent = 'Very Hot Today'
+            } else {
+                weatherImg.textContent = "Nothin' Happenin' Today"
+            }
+            weatherUv5.textContent = 'UV: ' + dailyForecast[i + 1].uvi;
+            weatherHumid5.textContent = 'Humidity: ' + dailyForecast[i + 1].humidity;
             forecastBox.append(weatherCard);
-            //weatherCard.append(today);
+            weatherCard.append(week);
+            weatherCard.append(weatherImg);
             weatherCard.append(weatherTemp5);
             weatherCard.append(weatherWind5);
             weatherCard.append(weatherHumid5);

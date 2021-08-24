@@ -58,7 +58,7 @@ function searchForecast() {
 
 function geoCoords(city) {
 
-    let geoApi = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=d91f911bcf2c0f925fb6535547a5ddc9`
+    let geoApi = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=d91f911bcf2c0f925fb6535547a5ddc9`
 
     fetch(geoApi)
         .then(response => {

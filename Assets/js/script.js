@@ -3,7 +3,7 @@ let textInput = document.getElementById("textfield");
 let searchButton = document.getElementById("searchbutton");
 let weatherBox = document.getElementById("currentWeatherBox");
 let forecastBox = document.getElementById("forecastbox")
-let buttonBox = document.getElementById("citybuttons")
+let buttonBox = document.getElementById("bDiv")
 
 let coordinate = {
     lat: 0,

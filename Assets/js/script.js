@@ -9,6 +9,7 @@ let coordinate = {
     lat: 0,
     lon: 0
 }
+
 let cityName;
 let weatherData;
 let dailyForecast;

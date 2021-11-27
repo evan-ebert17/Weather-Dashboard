@@ -43,8 +43,8 @@ button {
 }
 .inputParam {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     margin: 2px;
 }
@@ -62,12 +62,12 @@ button {
     border-style: solid;
     border-width: 1px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     height: 100%;
     width: 100%;
+    margin-top: 3px;
 }
 
 .citybuttons::first-letter {
@@ -82,9 +82,13 @@ button {
 }
 #containerL {
     display: inline-flex;
-    flex-wrap: wrap;
     flex-direction: column;
 }
+
+#searchbutton {
+    margin-top: 3px;
+}
+
 h4 {
     font-size: 2.5vh;
 }
@@ -115,3 +119,9 @@ h3 {
 .uvbox {
     background-color: greenyellow;
 }
+
+@media all and (max-width: 765) {
+    #leftcolumn {
+        display: flex;
+    };
+};

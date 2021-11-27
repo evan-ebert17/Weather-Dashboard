@@ -3,7 +3,8 @@ let textInput = document.getElementById("textfield");
 let searchButton = document.getElementById("searchbutton");
 let weatherBox = document.getElementById("currentWeatherBox");
 let forecastBox = document.getElementById("forecastbox")
-let buttonBox = document.getElementById("bDiv")
+let buttonBox = document.getElementById("bDiv");
+let leftHolder = document.getElementById('inputBox');
 
 let coordinate = {
     lat: 0,
@@ -27,9 +28,15 @@ searchButton.addEventListener('click', function (event) {
     cityName = textInput.value
     geoCoords(textInput.value)
     var cityButton = document.createElement('button');
+    var cityButtonDiv = document.createElement('div');
+    cityButtonDiv.setAttribute('id', 'bDiv');
     cityButton.textContent = cityName;
     cityButton.classList.add('citybuttons');
-    buttonBox.append(cityButton);
+    leftHolder.append(cityButtonDiv);
+    cityButtonDiv.append(cityButton);
+    cityButton.addEventListener('click', function() {
+        
+    })
 })
 
 

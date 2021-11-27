@@ -25,7 +25,7 @@ today = mm + '/' + dd; //+ '/' + yyyy;
 searchButton.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(textInput.value);
-    cityName = textInput.value
+    cityName = textInput.value;
     geoCoords(textInput.value)
     var cityButton = document.createElement('button');
     var cityButtonDiv = document.createElement('div');
@@ -35,7 +35,10 @@ searchButton.addEventListener('click', function (event) {
     leftHolder.append(cityButtonDiv);
     cityButtonDiv.append(cityButton);
     cityButton.addEventListener('click', function() {
-        geoCoords(cityButton.textContent);
+        if(cityName !== cityButton.textContent) {
+            cityName = cityButton.textContent;
+        }
+        geoCoords(cityName);
     })
 })
 
@@ -93,7 +96,7 @@ function appendWeather(weatherData) {
     weatherWind.textContent = 'Wind Speed: ' + weatherData.wind_speed;
     weatherUv.textContent = 'UV: ' + weatherData.uvi;
     weatherHumid.textContent = 'Humidity: ' + weatherData.humidity;
-    weatherUv.classList.add('uvbox')
+    weatherUv.classList.add('uvbox');
     cityNameEl.textContent = cityName;
     weatherBox.append(today)
     weatherBox.append(cityNameEl);

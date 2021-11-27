@@ -35,7 +35,7 @@ searchButton.addEventListener('click', function (event) {
     leftHolder.append(cityButtonDiv);
     cityButtonDiv.append(cityButton);
     cityButton.addEventListener('click', function() {
-        
+        geoCoords(cityButton.textContent);
     })
 })
 
